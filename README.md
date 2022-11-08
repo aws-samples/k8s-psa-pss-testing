@@ -500,6 +500,18 @@ status:
 ...
 ```
 
+## Useful Commands
+### Label Namespace
+```
+kubectl label --overwrite ns policy-test pod-security.kubernetes.io/enforce=restricted \
+pod-security.kubernetes.io/warn=restricted pod-security.kubernetes.io/audit=restricted
+```
+### Check Namespace Labels
+```
+kubectl get ns policy-test -L pod-security.kubernetes.io/enforce \
+-L pod-security.kubernetes.io/warn -L pod-security.kubernetes.io/audit
+```
+
 ## References
 * https://aws.github.io/aws-eks-best-practices/security/docs/pods/#pod-security-standards-pss-and-pod-security-admission-psa
 * https://kubernetes.io/docs/concepts/security/pod-security-standards/
